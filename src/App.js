@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
+
+import Header from "./components/Header";
+import CustomersList from "./pages/customers/customersList";
+import ProductsList from "./pages/products/productsList";
+import { InvoiceEdit, InvoiceNew, InvoicesList } from "./pages/invoices";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Container fluid>
+        <Switch>
+          <Route path="/customers">
+            <CustomersList />
+          </Route>
+          <Route path="/products">
+            <ProductsList />
+          </Route>
+          <Route exact path="/invoices">
+            <InvoicesList />
+          </Route>
+          <Route exact path="/invoices/create">
+            <InvoiceNew />
+          </Route>
+          <Route exact path="/invoices/:id">
+            <InvoiceEdit />
+          </Route>
+        </Switch>
+      </Container>
+    </Router>
   );
 }
 
