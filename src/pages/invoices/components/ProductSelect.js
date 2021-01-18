@@ -25,7 +25,9 @@ const ProductSelect = (props) => {
       value={value}
       options={options}
       onChange={(e) => {
-        const option = options.find((option) => option.value == e.target.value);
+        const option = options.find(
+          (current) => current.value === Number(e.target.value)
+        );
         onChange(e.target.value, option && option.product);
       }}
     />

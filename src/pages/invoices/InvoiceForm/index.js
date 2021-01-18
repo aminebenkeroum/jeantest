@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useState } from "react";
-import { Form, Col, Button, FormControl } from "react-bootstrap";
+import { Form, Col, Button } from "react-bootstrap";
 import InvoiceLines from "../components/InvoiceLines";
 import CustomerSelect from "../components/CustomerSelect";
 
@@ -181,7 +181,6 @@ const InvoiceForm = (props) => {
                 disable={finalizedInvoice}
                 onUpdate={(newLines) => setInvoiceLines(newLines)}
                 data={invoiceLines}
-                invoiceId={null}
               />
             )}
             <Button variant="primary" type="submit">

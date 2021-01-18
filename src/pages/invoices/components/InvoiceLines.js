@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useTable } from "react-table";
-import { Table, Form, Button } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { debounce } from "lodash";
 
 import EditableCell from "./EditableCell";
@@ -8,17 +8,14 @@ import ProductSelect from "./ProductSelect";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-const InvoiceLines = (props) => {
-  const {
-    invoiceId,
-    data,
-    onAdd,
-    onUpdate,
-    disable,
-    unitOptions,
-    vatRateOptions,
-  } = props;
-
+const InvoiceLines = ({
+  data,
+  onAdd,
+  onUpdate,
+  disable,
+  unitOptions,
+  vatRateOptions,
+}) => {
   const updateMyData = (updatedIndex, id, value, product) => {
     const finalData = data.map((line, index) => {
       if (index === updatedIndex) {
@@ -34,6 +31,7 @@ const InvoiceLines = (props) => {
       }
       return line;
     });
+
     onUpdate(finalData);
   };
 
@@ -143,7 +141,8 @@ const InvoiceLines = (props) => {
         },
       },
     ],
-    []
+
+    [data, onUpdate, disable, unitOptions, vatRateOptions]
   );
 
   const {
@@ -160,8 +159,6 @@ const InvoiceLines = (props) => {
 
   return (
     <div>
-      <h4>Invoice lines {invoiceId}</h4>
-
       <Button
         disabled={disable}
         size="sm"

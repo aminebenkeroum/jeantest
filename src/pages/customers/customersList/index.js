@@ -88,7 +88,7 @@ const CustomersList = ({ history }) => {
         },
       },
     ],
-    []
+    [history]
   );
 
   const {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
 import CustomSelect from "../../../components/CustomSelect";
 import { customers as getCustomers } from "../../../services/api";
 

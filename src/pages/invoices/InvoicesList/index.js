@@ -105,7 +105,7 @@ const InvoicesList = ({ history, location }) => {
             <Button
               size="sm"
               onClick={() =>
-                history.push(`invoices/${original.id}`, { invoice: original })
+                history.push(`/invoices/${original.id}`, { invoice: original })
               }
             >
               <FontAwesomeIcon
