@@ -42,7 +42,7 @@ const InvoicesList = ({ history, location }) => {
     } else {
       getInvoicesQuery("", 1);
     }
-  }, []);
+  }, [customerName]);
 
   let items = [];
   for (let number = 1; number <= pagination.total_pages; number++) {
@@ -120,7 +120,7 @@ const InvoicesList = ({ history, location }) => {
         },
       },
     ],
-    []
+    [history]
   );
 
   const {
